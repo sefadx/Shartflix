@@ -1,0 +1,6 @@
+{
+  "@@locale": "en",
+  "hello": "Hello",
+  "welcomeMessage": "Welcome, {userName}",
+  "remainingApples": "{count, plural, zero{No apples left.} one{1 apple left.} other{{count} apples left.}}"
+}

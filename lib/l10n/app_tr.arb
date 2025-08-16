@@ -1,0 +1,33 @@
+{
+  "@@locale": "tr",
+  "login": "Giriş Yap",
+  "logout": "Çıkış Yap",
+  "loginHello": "Merhabalar",
+  "loginDescription": "Zamanın değişkenliği, hayatın zaman zaman acı verici unsurlarını \nve iki yönlü zorlukları da beraberinde getirir.",
+  "email": "E-posta",
+  "password": "Şifre",
+  "loginForgotPassword": "Şifremi unuttum",
+  "noAccount": "Bir hesabınız yok mu?",
+  "noAccountSignUp": "Kayıt ol!",
+  "signUp": "Kayıt ol",
+
+  "welcomeMessage": "Hoş geldin, {userName}",
+  "@welcomeMessage": {
+    "description": "Kullanıcıyı ana ekranda karşılayan mesaj",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "Fatih"
+      }
+    }
+  },
+  "remainingApples": "{count, plural, zero{Hiç elma kalmadı.} one{1 elma kaldı.} other{{count} elma kaldı.}}",
+  "@remainingApples": {
+    "description": "Kalan elma sayısını gösteren çoğul mesaj",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}
