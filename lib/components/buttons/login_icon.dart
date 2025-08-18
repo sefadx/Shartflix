@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme/theme_extension.dart';
+import '../../theme/theme_extension.dart';
 
 class LoginIcon extends StatelessWidget {
   final IconData icon;

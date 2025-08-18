@@ -1,6 +1,56 @@
 {
   "@@locale": "en",
-  "hello": "Hello",
+
+  "login": "Login",
+  "signUp": "Sign Up",
+  "signUpRightNow": "Sign Up Now",
+  "logout": "Logout",
+
+  "warning": "Warning",
+  "error": "Error",
+  "unknown": "Unknown",
+  "unknownError": "Unknown Error",
+
+  "loginHello": "Hello",
+  "loginDescription": "The variability of time also brings along the painful aspects of life \nand its dual difficulties.",
+  "loginForgotPassword": "Forgot Password",
+
+  "userAgreement": "I have read and agree to the User Agreement.",
+  "@userAgreement": {
+    "description": "User agreement confirmation"
+  },
+  "userAgreementPart1": "I have read and agree to the ",
+  "userAgreementPart2": "User Agreement.",
+  "pleaseReadAgreement": "Please continue by reading this agreement.",
+
+  "fullName": "Full Name",
+  "email": "Email",
+  "password": "Password",
+  "rePassword": "Repeat Password",
+
+  "noAccount": "Don't have an account?",
+  "noAccountSignUp": "Sign up!",
+  "alreadyHaveAccount": "Already have an account?",
+  "alreadyHaveAccountLogIn": "Log in!",
+
   "welcomeMessage": "Welcome, {userName}",
-  "remainingApples": "{count, plural, zero{No apples left.} one{1 apple left.} other{{count} apples left.}}"
+  "@welcomeMessage": {
+    "description": "Message welcoming the user on the home screen",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+
+  "remainingApples": "{count, plural, zero{No apples left.} one{1 apple left.} other{{count} apples left.}}",
+  "@remainingApples": {
+    "description": "Plural message showing remaining apple count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

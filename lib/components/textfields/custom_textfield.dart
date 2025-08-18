@@ -3,21 +3,23 @@ import 'package:flutter/material.dart';
 import '../../theme/theme_extension.dart';
 
 class CustomTextField extends StatelessWidget {
+  final TextEditingController? controller;
   final String hintText;
   final IconData prefixIcon;
   final Widget? suffix;
   final bool obscureText;
-  final TextEditingController? controller;
   final TextInputType keyboardType;
+  final void Function(String)? onChanged;
 
   const CustomTextField({
     super.key,
+    this.controller,
     required this.hintText,
     required this.prefixIcon,
     this.suffix,
     this.obscureText = false,
-    this.controller,
     this.keyboardType = TextInputType.text,
+    this.onChanged,
   });
 
   @override
@@ -26,6 +28,7 @@ class CustomTextField extends StatelessWidget {
     final customTheme = theme.extension<CustomThemeExtension>()!;
     return TextField(
       controller: controller,
+      onChanged: onChanged,
       obscureText: obscureText,
       keyboardType: keyboardType,
       style: theme.textTheme.bodyLarge,

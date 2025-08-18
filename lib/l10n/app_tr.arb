@@ -1,15 +1,43 @@
 {
   "@@locale": "tr",
+
   "login": "Giriş Yap",
+  "signUp": "Kayıt Ol",
+  "signUpRightNow": "Şimdi Kaydol",
   "logout": "Çıkış Yap",
+
+  "warning": "Uyarı",
+  "error": "Hata",
+  "unknown": "Bilinmeyen",
+  "unknownError": "Bilinmeyen Hata",
+
   "loginHello": "Merhabalar",
   "loginDescription": "Zamanın değişkenliği, hayatın zaman zaman acı verici unsurlarını \nve iki yönlü zorlukları da beraberinde getirir.",
+  "loginForgotPassword": "Şifremi unuttum",
+
+  "fullNameValid": "Lütfen geçerli ad girin. Minimum 4 karakter.",
+  "emailValid": "Lütfen geçerli email giriniz.",
+  "passwordValid": "Lütfen şifrenizi kontrol edin. Minimum 6 karakter.",
+  "rePasswordCheck": "Lütfen şifrenizin şifre tekrarı  ile aynı olduğundan emin olun.",
+  "agreementCheck": "Kullanıcı Sözleşmesini okuyunuz.",
+
+  "userAgreement": "Kullanıcı sözleşmesini okudum ve kabul ediyorum.",
+  "@userAgreement": {
+    "description": "Kullanıcı sözleşmesi onayı"
+  },
+  "userAgreementPart1": "Kullanıcı sözleşmesini ",
+  "userAgreementPart2": "okudum ve kabul ediyorum.",
+  "pleaseReadAgreement": "Bu sözleşmeyi okuyarak devam ediniz lütfen.",
+
+  "fullName": "Ad Soyad",
   "email": "E-posta",
   "password": "Şifre",
-  "loginForgotPassword": "Şifremi unuttum",
+  "rePassword": "Şifre Tekrarı",
+
   "noAccount": "Bir hesabınız yok mu?",
   "noAccountSignUp": "Kayıt ol!",
-  "signUp": "Kayıt ol",
+  "alreadyHaveAccount": "Zaten bir hesabın var mı ?",
+  "alreadyHaveAccountLogIn": "Giriş yap!",
 
   "welcomeMessage": "Hoş geldin, {userName}",
   "@welcomeMessage": {
@@ -21,6 +49,8 @@
       }
     }
   },
+
+
   "remainingApples": "{count, plural, zero{Hiç elma kalmadı.} one{1 elma kaldı.} other{{count} elma kaldı.}}",
   "@remainingApples": {
     "description": "Kalan elma sayısını gösteren çoğul mesaj",

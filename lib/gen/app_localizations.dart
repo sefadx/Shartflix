@@ -101,11 +101,47 @@ abstract class AppLocalizations {
   /// **'Giriş Yap'**
   String get login;
 
+  /// No description provided for @signUp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıt Ol'**
+  String get signUp;
+
+  /// No description provided for @signUpRightNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şimdi Kaydol'**
+  String get signUpRightNow;
+
   /// No description provided for @logout.
   ///
   /// In tr, this message translates to:
   /// **'Çıkış Yap'**
   String get logout;
+
+  /// No description provided for @warning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyarı'**
+  String get warning;
+
+  /// No description provided for @error.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hata'**
+  String get error;
+
+  /// No description provided for @unknown.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilinmeyen'**
+  String get unknown;
+
+  /// No description provided for @unknownError.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilinmeyen Hata'**
+  String get unknownError;
 
   /// No description provided for @loginHello.
   ///
@@ -119,6 +155,72 @@ abstract class AppLocalizations {
   /// **'Zamanın değişkenliği, hayatın zaman zaman acı verici unsurlarını \nve iki yönlü zorlukları da beraberinde getirir.'**
   String get loginDescription;
 
+  /// No description provided for @loginForgotPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifremi unuttum'**
+  String get loginForgotPassword;
+
+  /// No description provided for @fullNameValid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lütfen geçerli ad girin. Minimum 4 karakter.'**
+  String get fullNameValid;
+
+  /// No description provided for @emailValid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lütfen geçerli email giriniz.'**
+  String get emailValid;
+
+  /// No description provided for @passwordValid.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lütfen şifrenizi kontrol edin. Minimum 6 karakter.'**
+  String get passwordValid;
+
+  /// No description provided for @rePasswordCheck.
+  ///
+  /// In tr, this message translates to:
+  /// **'Lütfen şifrenizin şifre tekrarı  ile aynı olduğundan emin olun.'**
+  String get rePasswordCheck;
+
+  /// No description provided for @agreementCheck.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı Sözleşmesini okuyunuz.'**
+  String get agreementCheck;
+
+  /// Kullanıcı sözleşmesi onayı
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı sözleşmesini okudum ve kabul ediyorum.'**
+  String get userAgreement;
+
+  /// No description provided for @userAgreementPart1.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı sözleşmesini '**
+  String get userAgreementPart1;
+
+  /// No description provided for @userAgreementPart2.
+  ///
+  /// In tr, this message translates to:
+  /// **'okudum ve kabul ediyorum.'**
+  String get userAgreementPart2;
+
+  /// No description provided for @pleaseReadAgreement.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu sözleşmeyi okuyarak devam ediniz lütfen.'**
+  String get pleaseReadAgreement;
+
+  /// No description provided for @fullName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad Soyad'**
+  String get fullName;
+
   /// No description provided for @email.
   ///
   /// In tr, this message translates to:
@@ -131,11 +233,11 @@ abstract class AppLocalizations {
   /// **'Şifre'**
   String get password;
 
-  /// No description provided for @loginForgotPassword.
+  /// No description provided for @rePassword.
   ///
   /// In tr, this message translates to:
-  /// **'Şifremi unuttum'**
-  String get loginForgotPassword;
+  /// **'Şifre Tekrarı'**
+  String get rePassword;
 
   /// No description provided for @noAccount.
   ///
@@ -149,11 +251,17 @@ abstract class AppLocalizations {
   /// **'Kayıt ol!'**
   String get noAccountSignUp;
 
-  /// No description provided for @signUp.
+  /// No description provided for @alreadyHaveAccount.
   ///
   /// In tr, this message translates to:
-  /// **'Kayıt ol'**
-  String get signUp;
+  /// **'Zaten bir hesabın var mı ?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @alreadyHaveAccountLogIn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş yap!'**
+  String get alreadyHaveAccountLogIn;
 
   /// Kullanıcıyı ana ekranda karşılayan mesaj
   ///

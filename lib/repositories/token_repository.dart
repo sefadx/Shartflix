@@ -1,47 +1,38 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
-// Token'ları güvenli bir şekilde saklamak için.
 class TokenRepository {
-  final _storage = const FlutterSecureStorage();
-  static const _accessTokenKey = 'accessToken';
-  static const _refreshTokenKey = 'refreshToken';
+  final _storage = const FlutterSecureStorage(mOptions: MacOsOptions.defaultOptions);
+  static const _auth = 'auth';
 
-  Future<void> saveTokens({
-    required String accessToken,
-    required String refreshToken,
-  }) async {
-    await _storage.write(key: _accessTokenKey, value: accessToken);
-    await _storage.write(key: _refreshTokenKey, value: refreshToken);
+  Future<void> saveTokens({required String auth}) async {
+    await _storage.write(key: _auth, value: auth);
   }
 
-  Future<String?> getAccessToken() => _storage.read(key: _accessTokenKey);
-  Future<String?> getRefreshToken() => _storage.read(key: _refreshTokenKey);
+  Future<String?> getAuthInfo() => _storage.read(key: _auth);
 
   Future<void> clearTokens() async {
     await _storage.deleteAll();
   }
 
-  // Swift'teki `checkTokenStatus` mantığının karşılığı
-  Future<bool> hasValidRefreshToken() async {
-    final refreshToken = await getRefreshToken();
-    if (refreshToken == null) return false;
+  Future<bool> hasValidAuthInfo() async {
+    final authInfo = await getAuthInfo();
+    if (authInfo == null) return false;
 
     try {
-      // Refresh token'ın süresinin dolup dolmadığını kontrol et
-      return !JwtDecoder.isExpired(refreshToken);
+      return !JwtDecoder.isExpired(authInfo);
     } catch (e) {
-      // Geçersiz token
       return false;
     }
   }
 
-  Future<String?> getUserIdFromToken() async {
-    final refreshToken = await getRefreshToken();
-    if (refreshToken == null) return null;
+  Future<Map<String, dynamic>?> getAuthFromToken() async {
+    final auth = await getAuthInfo();
+    if (auth == null) return null;
     try {
-      final decodedToken = JwtDecoder.decode(refreshToken);
-      return decodedToken['userId'];
+      final decodedToken = JwtDecoder.decode(auth);
+      decodedToken['token'] = auth;
+      return decodedToken;
     } catch (e) {
       return null;
     }

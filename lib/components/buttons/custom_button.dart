@@ -20,7 +20,11 @@ class CustomButton extends StatelessWidget {
           color: theme.colorScheme.primary,
           borderRadius: BorderRadius.circular(customTheme.radiuslarge),
         ),
-        child: Text(text, style: theme.textTheme.titleLarge, textAlign: TextAlign.center),
+        child: Text(
+          text,
+          style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

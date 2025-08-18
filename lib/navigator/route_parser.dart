@@ -1,27 +1,58 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'pages.dart';
 
-class AppRouteInformationParser extends RouteInformationParser<PageConfiguration> {
+class AppRouteInformationParser extends RouteInformationParser<AppRoute> {
   @override
-  Future<PageConfiguration> parseRouteInformation(RouteInformation routeInformation) async {
+  Future<AppRoute> parseRouteInformation(RouteInformation routeInformation) {
     final uri = routeInformation.uri;
 
     if (uri.pathSegments.isEmpty) {
-      return ConfigLogin;
+      return SynchronousFuture(const LoginRoute());
     }
 
-    switch (uri.pathSegments.first) {
+    final segments = uri.pathSegments;
+
+    switch (segments.first) {
       case 'home':
-        return ConfigHome;
+        return SynchronousFuture(const HomeRoute());
+
       case 'login':
-        return ConfigLogin;
+        return SynchronousFuture(const LoginRoute());
+
+      case 'register':
+        return SynchronousFuture(const RegisterRoute());
+      /*
+      case 'profile':
+        if (segments.length > 1) {
+          final userId = segments[1];
+          return SynchronousFuture(ProfileRoute(userId: userId));
+        }
+        return SynchronousFuture(const LoginRoute());
+        */
+
       default:
-        return ConfigLogin;
+        return SynchronousFuture(const LoginRoute());
     }
   }
 
   @override
-  RouteInformation? restoreRouteInformation(PageConfiguration configuration) {
-    return RouteInformation(location: configuration.path);
+  RouteInformation? restoreRouteInformation(AppRoute configuration) {
+    String location;
+
+    if (configuration is HomeRoute) {
+      location = '/home';
+    } else if (configuration is LoginRoute) {
+      location = '/login';
+    } else if (configuration is RegisterRoute) {
+      location = '/register';
+    } /*else if (configuration is ProfileRoute) {
+      location = '/profile/${configuration.userId}';
+    }*/ else {
+      // 404 page
+      return null;
+    }
+
+    return RouteInformation(uri: Uri.parse(location));
   }
 }
