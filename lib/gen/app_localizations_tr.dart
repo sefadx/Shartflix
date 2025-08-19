@@ -9,6 +9,12 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get homePage => 'Anasayfa';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
   String get login => 'Giriş Yap';
 
   @override
@@ -91,6 +97,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get alreadyHaveAccountLogIn => 'Giriş yap!';
+
+  @override
+  String get actionFavorited => 'Favoriye alındı';
+
+  @override
+  String get actionUnfavorite => 'Favoriden çıkarıldı';
 
   @override
   String welcomeMessage(String userName) {

@@ -26,6 +26,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   ///gap size 60.0
   final double gapxxxlarge;
 
+  ///gap size 80.0
+  final double gapxxxxlarge;
+
   ///radius size 8.0
   final double radiussmall;
 
@@ -44,6 +47,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.gapxlarge = 30.0,
     this.gapxxlarge = 40.0,
     this.gapxxxlarge = 60.0,
+    this.gapxxxxlarge = 80.0,
     this.radiussmall = 8.0,
     this.radiusmedium = 12.0,
     this.radiuslarge = 16.0,
@@ -60,6 +64,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       gapxlarge: gapxlarge,
       gapxxlarge: gapxxlarge,
       gapxxxlarge: gapxxxlarge,
+      gapxxxxlarge: gapxxxxlarge,
       radiussmall: radiussmall,
       radiusmedium: radiusmedium,
       radiuslarge: radiuslarge,

@@ -23,7 +23,7 @@ class SplashRoute extends AppRoute {
 class HomeRoute extends AppRoute {
   const HomeRoute();
   @override
-  Widget build() => const PageHome();
+  Widget build() => PageHome();
 }
 
 class LoginRoute extends AppRoute {

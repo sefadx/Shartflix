@@ -63,7 +63,11 @@ class MovieEndpoint extends ApiEndpoint {
   final int page;
   const MovieEndpoint({required this.page});
   @override
-  String path() => "${ApiEndpoint._baseMovie}/list";
+  String path() {
+    const basePath = "${ApiEndpoint._baseMovie}/list";
+    final params = {'page': page};
+    return _buildPathWithQuery(basePath, params);
+  }
 }
 
 class MovieFavoritesEndpoint extends ApiEndpoint {
@@ -73,75 +77,18 @@ class MovieFavoritesEndpoint extends ApiEndpoint {
   String path() => ApiEndpoint._baseMovieFavorites(id: id);
 }
 
-class ConnectionsEndpoint extends ApiEndpoint {
-  final String? queryText;
-  final int? limit;
-  final String? lastItemId;
+// --- User Endpoints ---
 
-  const ConnectionsEndpoint({this.queryText, this.limit, this.lastItemId});
-
-  @override
-  String path() {
-    const basePath = "${ApiEndpoint._baseMe}/connections";
-    final params = {'text': queryText, 'limit': limit, 'nextCursor': lastItemId};
-    return _buildPathWithQuery(basePath, params);
-  }
-}
-
-class UserEndpoint extends ApiEndpoint {
+class ProfileEndpoint extends ApiEndpoint {
   final String? id;
   final String? username;
 
-  const UserEndpoint({this.id, this.username});
+  const ProfileEndpoint({this.id, this.username});
 
   @override
   String path() {
-    const basePath = ApiEndpoint._baseUser;
+    const basePath = "${ApiEndpoint._baseUser}/profile";
     final params = {'id': id, 'username': username};
-    return _buildPathWithQuery(basePath, params);
-  }
-}
-
-class UserConnectionsEndpoint extends ApiEndpoint {
-  final String id;
-  final String? queryText;
-  final int? limit;
-  final String? lastItemId;
-
-  const UserConnectionsEndpoint({required this.id, this.queryText, this.limit, this.lastItemId});
-
-  @override
-  String path() {
-    final basePath = "${ApiEndpoint._baseUser}/$id/connections";
-    final params = {'text': queryText, 'limit': limit, 'nextCursor': lastItemId};
-    return _buildPathWithQuery(basePath, params);
-  }
-}
-
-class ConnectEndpoint extends ApiEndpoint {
-  final String targetUserId;
-
-  const ConnectEndpoint({required this.targetUserId});
-
-  @override
-  String path() => "${ApiEndpoint._baseUser}/$targetUserId/connect";
-}
-
-class TripEndpoint extends ApiEndpoint {
-  final String? tripId;
-  final String? queryText;
-  final int? limit;
-  final String? lastItemId;
-
-  const TripEndpoint({this.tripId, this.queryText, this.limit, this.lastItemId});
-
-  @override
-  String path() {
-    var basePath = ApiEndpoint._baseTrip;
-    if (tripId != null) {
-      basePath += '/$tripId';
-    }
-    final params = {'text': queryText, 'limit': limit, 'nextCursor': lastItemId};
     return _buildPathWithQuery(basePath, params);
   }
 }

@@ -1,6 +1,9 @@
 {
   "@@locale": "tr",
 
+  "homePage": "Anasayfa",
+  "profile": "Profil",
+
   "login": "Giriş Yap",
   "signUp": "Kayıt Ol",
   "signUpRightNow": "Şimdi Kaydol",
@@ -38,6 +41,9 @@
   "noAccountSignUp": "Kayıt ol!",
   "alreadyHaveAccount": "Zaten bir hesabın var mı ?",
   "alreadyHaveAccountLogIn": "Giriş yap!",
+
+  "actionFavorited" : "Favoriye alındı",
+  "actionUnfavorite": "Favoriden çıkarıldı",
 
   "welcomeMessage": "Hoş geldin, {userName}",
   "@welcomeMessage": {

@@ -95,6 +95,18 @@ abstract class AppLocalizations {
     Locale('tr')
   ];
 
+  /// No description provided for @homePage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anasayfa'**
+  String get homePage;
+
+  /// No description provided for @profile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Profil'**
+  String get profile;
+
   /// No description provided for @login.
   ///
   /// In tr, this message translates to:
@@ -262,6 +274,18 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Giriş yap!'**
   String get alreadyHaveAccountLogIn;
+
+  /// No description provided for @actionFavorited.
+  ///
+  /// In tr, this message translates to:
+  /// **'Favoriye alındı'**
+  String get actionFavorited;
+
+  /// No description provided for @actionUnfavorite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Favoriden çıkarıldı'**
+  String get actionUnfavorite;
 
   /// Kullanıcıyı ana ekranda karşılayan mesaj
   ///

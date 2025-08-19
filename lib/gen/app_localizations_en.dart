@@ -9,6 +9,12 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get homePage => 'Anasayfa';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
   String get login => 'Login';
 
   @override
@@ -91,6 +97,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get alreadyHaveAccountLogIn => 'Log in!';
+
+  @override
+  String get actionFavorited => 'Favoriye alındı';
+
+  @override
+  String get actionUnfavorite => 'Favoriden çıkarıldı';
 
   @override
   String welcomeMessage(String userName) {

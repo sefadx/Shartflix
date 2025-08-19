@@ -81,6 +81,7 @@ class AppTheme {
         filled: true,
         fillColor: _lightColorScheme.surface,
       ),
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
       extensions: const <ThemeExtension>[CustomThemeExtension()],
     );
   }
@@ -116,6 +117,7 @@ class AppTheme {
         filled: true,
         fillColor: _darkColorScheme.surface,
       ),
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
       extensions: const <ThemeExtension>[CustomThemeExtension()],
     );
   }

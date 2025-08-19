@@ -5,6 +5,7 @@ part 'home_event.g.dart';
 
 abstract class HomeEvent extends Equatable {
   const HomeEvent();
+  @override
   List<Object?> get props => [];
 }
 
@@ -14,13 +15,23 @@ class HomeStarted extends HomeEvent {
 }
 
 @JsonSerializable()
-class HomeFetched extends HomeEvent {
+class HomeMovieFetched extends HomeEvent {
   final int page;
-  const HomeFetched({this.page = 1});
+  const HomeMovieFetched({this.page = 1});
 
-  factory HomeFetched.fromJson(Map<String, dynamic> json) => _$HomeFetchedFromJson(json);
-  Map<String, dynamic> toJson() => _$HomeFetchedToJson(this);
+  factory HomeMovieFetched.fromJson(Map<String, dynamic> json) => _$HomeMovieFetchedFromJson(json);
+  Map<String, dynamic> toJson() => _$HomeMovieFetchedToJson(this);
 
   @override
   List<Object?> get props => [page];
+}
+
+@JsonSerializable()
+class HomeMovieFavoriteRequest extends HomeEvent {
+  final String favoriteId;
+  const HomeMovieFavoriteRequest({required this.favoriteId});
+
+  factory HomeMovieFavoriteRequest.fromJson(Map<String, dynamic> json) =>
+      _$HomeMovieFavoriteRequestFromJson(json);
+  Map<String, dynamic> toJson() => _$HomeMovieFavoriteRequestToJson(this);
 }
