@@ -1,6 +1,31 @@
 {
   "@@locale": "en",
 
+  "homePage": "Homepage",
+  "profile": "Profile",
+  "profileDetail": "Profile Details",
+
+  "likedYourMovies": "Favorite Films",
+
+  "success": "Success",
+  "failure": "Failure",
+
+  "uploadYourPhotos": "Upload Your Photos",
+  "uploadYourPhotosDesc": "Before pick your photo, after upload it",
+  "uploaded": "Uploaded",
+
+  "perWeek": "Per Week",
+  "token": "Jeton",
+  "limitedOffer" : "Limited Offer",
+  "offerDescription": "Select a token package\nto earn bonusesand unlock new levels.",
+  "incomeBonuses": "Earn Bonuses",
+  "premiumAccount": "Premium\nAccount",
+  "moreMatch": "More Matches",
+  "morePriority": "Highlight",
+  "moreLike": "More Likes",
+  "selectTokenOffer": "Select a token offer to unlock",
+  "seeAllTokens": "Show All Tokens",
+
   "login": "Login",
   "signUp": "Sign Up",
   "signUpRightNow": "Sign Up Now",
@@ -32,6 +57,32 @@
   "noAccountSignUp": "Sign up!",
   "alreadyHaveAccount": "Already have an account?",
   "alreadyHaveAccountLogIn": "Log in!",
+
+  "addPhoto": "Upload Photo",
+
+  "actionFavorite" : "Added favorites",
+  "actionUnfavored": "Removed from favorites",
+
+  "price": "{value}",
+  "@price": {
+    "description": "Price formatted in local currency",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+
+  "percentDiscount": "{value}%",
+  "@percentDiscount": {
+    "description": "Shows discount percentage, % at the end (English)",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+
 
   "welcomeMessage": "Welcome, {userName}",
   "@welcomeMessage": {

@@ -57,6 +57,12 @@ class RegisterEndpoint extends ApiEndpoint {
   String path() => "${ApiEndpoint._baseUser}/register";
 }
 
+class PhotoUploadEndpoint extends ApiEndpoint {
+  const PhotoUploadEndpoint();
+  @override
+  String path() => "${ApiEndpoint._baseUser}/upload_photo";
+}
+
 // --- Movie Endpoints ---
 
 class MovieEndpoint extends ApiEndpoint {

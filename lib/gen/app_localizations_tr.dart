@@ -15,6 +15,60 @@ class AppLocalizationsTr extends AppLocalizations {
   String get profile => 'Profil';
 
   @override
+  String get profileDetail => 'Profil Detayı';
+
+  @override
+  String get likedYourMovies => 'Beğendiğin Filmler';
+
+  @override
+  String get success => 'Başarılı';
+
+  @override
+  String get failure => 'Başarısız';
+
+  @override
+  String get uploadYourPhotos => 'Fotoğraflarınızı Yükleyin';
+
+  @override
+  String get uploadYourPhotosDesc => 'Önce fotoğrafını seç, sonra onu yükle';
+
+  @override
+  String get uploaded => 'Yükleme Tamamlandı';
+
+  @override
+  String get perWeek => 'Başına Haftalık';
+
+  @override
+  String get token => 'Jeton';
+
+  @override
+  String get limitedOffer => 'Sınırlı Teklif';
+
+  @override
+  String get offerDescription => 'Jeton paketini seçerek bonus\nkazanın ve yeni bölümlerin kilidini açın.';
+
+  @override
+  String get incomeBonuses => 'Alacağınız Bonuslar';
+
+  @override
+  String get premiumAccount => 'Premium\nHesap';
+
+  @override
+  String get moreMatch => 'Daha\nFazla Eşleşme';
+
+  @override
+  String get morePriority => 'Öne\nÇıkarma';
+
+  @override
+  String get moreLike => 'Daha\nFazla Beğeni';
+
+  @override
+  String get selectTokenOffer => 'Kilidi açmak için bir jeton pakedi seçin';
+
+  @override
+  String get seeAllTokens => 'Tüm Jetonları Gör';
+
+  @override
   String get login => 'Giriş Yap';
 
   @override
@@ -99,10 +153,23 @@ class AppLocalizationsTr extends AppLocalizations {
   String get alreadyHaveAccountLogIn => 'Giriş yap!';
 
   @override
-  String get actionFavorited => 'Favoriye alındı';
+  String get addPhoto => 'Fotoğraf Ekle';
 
   @override
-  String get actionUnfavorite => 'Favoriden çıkarıldı';
+  String get actionFavorite => 'Favoriye alındı';
+
+  @override
+  String get actionUnfavored => 'Favoriden çıkarıldı';
+
+  @override
+  String price(String value) {
+    return '$value';
+  }
+
+  @override
+  String percentDiscount(String value) {
+    return '%$value';
+  }
 
   @override
   String welcomeMessage(String userName) {

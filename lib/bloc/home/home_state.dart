@@ -25,7 +25,7 @@ class HomeLoading extends HomeState {
 
 class HomeFailure extends HomeState {
   final String message;
-  const HomeFailure(this.message);
+  const HomeFailure(this.message, {super.listMovie, super.pagination});
 }
 
 @JsonSerializable()
@@ -40,5 +40,5 @@ class HomeNext extends HomeState {
 }
 
 class HomeMovieFavorite extends HomeState {
-  const HomeMovieFavorite({required super.listMovie});
+  const HomeMovieFavorite({required super.listMovie, super.pagination});
 }

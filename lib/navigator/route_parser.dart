@@ -8,7 +8,7 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoute> {
     final uri = routeInformation.uri;
 
     if (uri.pathSegments.isEmpty) {
-      return SynchronousFuture(const LoginRoute());
+      return SynchronousFuture(const SplashRoute());
     }
 
     final segments = uri.pathSegments;
@@ -32,7 +32,7 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoute> {
         */
 
       default:
-        return SynchronousFuture(const LoginRoute());
+        return SynchronousFuture(const SplashRoute());
     }
   }
 

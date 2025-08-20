@@ -3,6 +3,28 @@
 
   "homePage": "Anasayfa",
   "profile": "Profil",
+  "profileDetail": "Profil Detayı",
+
+  "likedYourMovies": "Beğendiğin Filmler",
+
+  "success": "Başarılı",
+  "failure": "Başarısız",
+
+  "uploadYourPhotos": "Fotoğraflarınızı Yükleyin",
+  "uploadYourPhotosDesc": "Önce fotoğrafını seç, sonra onu yükle",
+  "uploaded": "Yükleme Tamamlandı",
+
+  "perWeek": "Başına Haftalık",
+  "token": "Jeton",
+  "limitedOffer" : "Sınırlı Teklif",
+  "offerDescription": "Jeton paketini seçerek bonus\nkazanın ve yeni bölümlerin kilidini açın.",
+  "incomeBonuses": "Alacağınız Bonuslar",
+  "premiumAccount": "Premium\nHesap",
+  "moreMatch": "Daha\nFazla Eşleşme",
+  "morePriority": "Öne\nÇıkarma",
+  "moreLike": "Daha\nFazla Beğeni",
+  "selectTokenOffer": "Kilidi açmak için bir jeton pakedi seçin",
+  "seeAllTokens": "Tüm Jetonları Gör",
 
   "login": "Giriş Yap",
   "signUp": "Kayıt Ol",
@@ -42,8 +64,29 @@
   "alreadyHaveAccount": "Zaten bir hesabın var mı ?",
   "alreadyHaveAccountLogIn": "Giriş yap!",
 
-  "actionFavorited" : "Favoriye alındı",
-  "actionUnfavorite": "Favoriden çıkarıldı",
+  "addPhoto": "Fotoğraf Ekle",
+
+  "actionFavorite" : "Favoriye alındı",
+  "actionUnfavored": "Favoriden çıkarıldı",
+
+  "price": "{value}",
+  "@price": {
+    "description": "Ülke para formatında fiyat",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "percentDiscount": "%{value}",
+  "@percentDiscount": {
+    "description": "İndirim yüzdesini gösterir, % işareti başta (Türkçe)",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
 
   "welcomeMessage": "Hoş geldin, {userName}",
   "@welcomeMessage": {
@@ -55,7 +98,6 @@
       }
     }
   },
-
 
   "remainingApples": "{count, plural, zero{Hiç elma kalmadı.} one{1 elma kaldı.} other{{count} elma kaldı.}}",
   "@remainingApples": {

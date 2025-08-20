@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
 import 'bloc/auth/auth_bloc.dart';
 import 'bloc/auth/auth_event.dart';
-import 'bloc/auth/auth_state.dart';
-import 'bloc/theme/theme_bloc.dart';
+import 'bloc/theme/theme_cubit.dart';
 import 'gen/app_localizations.dart';
 import 'navigator/app_router.dart';
 import 'navigator/back_dispatcher.dart';
@@ -25,7 +24,7 @@ void main() {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ThemeBloc()),
+        BlocProvider(create: (_) => ThemeCubit(ThemeMode.system)),
         BlocProvider(create: (_) => AuthBloc(tokenRepository: tokenRepository)..add(AppStarted())),
       ],
       child: Shartflix(),
@@ -60,13 +59,13 @@ class Shartflix extends StatelessWidget {
           AppRouter.instance.push(PopupInfoRoute(message: state.error));
         }
       },
-      child: BlocBuilder<ThemeBloc, ThemeState>(
-        builder: (context, themeState) {
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, theme) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: themeState.themeMode,
+            themeMode: theme,
             supportedLocales: AppLocalizations.supportedLocales,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             routerDelegate: _router,

@@ -9,10 +9,64 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get homePage => 'Anasayfa';
+  String get homePage => 'Homepage';
 
   @override
-  String get profile => 'Profil';
+  String get profile => 'Profile';
+
+  @override
+  String get profileDetail => 'Profile Details';
+
+  @override
+  String get likedYourMovies => 'Favorite Films';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get failure => 'Failure';
+
+  @override
+  String get uploadYourPhotos => 'Upload Your Photos';
+
+  @override
+  String get uploadYourPhotosDesc => 'Before pick your photo, after upload it';
+
+  @override
+  String get uploaded => 'Uploaded';
+
+  @override
+  String get perWeek => 'Per Week';
+
+  @override
+  String get token => 'Jeton';
+
+  @override
+  String get limitedOffer => 'Limited Offer';
+
+  @override
+  String get offerDescription => 'Select a token package\nto earn bonusesand unlock new levels.';
+
+  @override
+  String get incomeBonuses => 'Earn Bonuses';
+
+  @override
+  String get premiumAccount => 'Premium\nAccount';
+
+  @override
+  String get moreMatch => 'More Matches';
+
+  @override
+  String get morePriority => 'Highlight';
+
+  @override
+  String get moreLike => 'More Likes';
+
+  @override
+  String get selectTokenOffer => 'Select a token offer to unlock';
+
+  @override
+  String get seeAllTokens => 'Show All Tokens';
 
   @override
   String get login => 'Login';
@@ -99,10 +153,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get alreadyHaveAccountLogIn => 'Log in!';
 
   @override
-  String get actionFavorited => 'Favoriye alındı';
+  String get addPhoto => 'Upload Photo';
 
   @override
-  String get actionUnfavorite => 'Favoriden çıkarıldı';
+  String get actionFavorite => 'Added favorites';
+
+  @override
+  String get actionUnfavored => 'Removed from favorites';
+
+  @override
+  String price(String value) {
+    return '$value';
+  }
+
+  @override
+  String percentDiscount(String value) {
+    return '$value%';
+  }
 
   @override
   String welcomeMessage(String userName) {

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../pages/auth/login.dart';
 import '../pages/auth/register.dart';
 import '../pages/home.dart';
+import '../pages/photo_upload.dart';
 import '../pages/popup/popup_info.dart';
+import '../pages/popup/popup_offer.dart';
 import '../pages/splash.dart';
 
 @immutable
@@ -38,9 +40,20 @@ class RegisterRoute extends AppRoute {
   Widget build() => const PageRegister();
 }
 
+class PhotoUploadRoute extends AppRoute {
+  const PhotoUploadRoute();
+  @override
+  Widget build() => const PagePhotoUpload();
+}
+
+// ---------  Popup Routes  -------------
+
 class PopupInfoRoute extends AppRoute with EquatableMixin {
   final String? title, message;
   const PopupInfoRoute({this.title, this.message});
+
+  @override
+  String get id => runtimeType.toString();
 
   @override
   Widget build() => PagePopupInfo(title: title, message: message);
@@ -57,52 +70,11 @@ class PopupLoadingRoute extends AppRoute {
   @override
   Widget build() => const Center(child: CircularProgressIndicator());
   @override
-  PageRouteSettings get pageRouteSettings =>
-      const PageRouteSettings(backgroundOpaque: false, barrierDismissible: true);
-}
-/*
-class ProfileRoute extends AppRoute {
-  final String userId;
-  const ProfileRoute({required this.userId});
-
-  @override
-  Widget build(BuildContext context) => PageProfile(userId: userId);
-}
-*/
-
-class PageRouteSettings {
-  const PageRouteSettings({
-    this.backgroundOpaque = true,
-    this.barrierDismissible = false,
-    this.fullScreenDialog = false,
-    this.barrierColor,
-  });
-
-  static const defaultSettings = PageRouteSettings();
-
-  final Color? barrierColor;
-  final bool backgroundOpaque;
-  final bool barrierDismissible;
-  final bool fullScreenDialog;
-}
-
-/*
-enum Pages { Home, Login, Register }
-
-class PageConfiguration {
-  PageConfiguration({
-    required this.key,
-    required this.path,
-    required this.uiPage,
-    this.pageRouteSettings = PageRouteSettings.defaultSettings,
-    this.currentPageAction,
-  });
-
-  final String key;
-  final String path;
-  final Pages uiPage;
-  PageRouteSettings pageRouteSettings;
-  PageAction? currentPageAction;
+  PageRouteSettings get pageRouteSettings => const PageRouteSettings(
+    fullScreenDialog: true,
+    backgroundOpaque: false,
+    barrierDismissible: false,
+  );
 }
 
 class PageRouteSettings {
@@ -120,22 +92,3 @@ class PageRouteSettings {
   final bool barrierDismissible;
   final bool fullScreenDialog;
 }
-
-// Page Configurations
-const String PathHome = '/home';
-PageConfiguration ConfigHome = PageConfiguration(key: 'Home', path: PathHome, uiPage: Pages.Home);
-
-const String PathLogin = '/login';
-PageConfiguration ConfigLogin = PageConfiguration(
-  key: 'Login',
-  path: PathLogin,
-  uiPage: Pages.Login,
-);
-
-const String PathRegister = '/register';
-PageConfiguration ConfigRegister = PageConfiguration(
-  key: 'Register',
-  path: PathRegister,
-  uiPage: Pages.Register,
-);
-*/

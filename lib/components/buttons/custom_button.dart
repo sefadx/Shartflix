@@ -2,10 +2,24 @@ import 'package:flutter/material.dart';
 import '../../theme/theme_extension.dart';
 
 class CustomButton extends StatelessWidget {
+  final MainAxisSize? mainAxisSize;
+  final EdgeInsets? padding;
+  final double? radius;
   final String text;
+  final Icon? icon;
+  final TextStyle? textStyle;
   final void Function()? onTap;
 
-  const CustomButton({required this.text, this.onTap, super.key});
+  const CustomButton({
+    this.mainAxisSize,
+    this.padding,
+    this.radius,
+    required this.text,
+    this.icon,
+    this.textStyle,
+    this.onTap,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +29,23 @@ class CustomButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(customTheme.radiuslarge),
       onTap: onTap,
       child: Ink(
-        padding: EdgeInsets.all(customTheme.gaplarge),
+        padding: padding ?? EdgeInsets.all(customTheme.gaplarge),
         decoration: BoxDecoration(
           color: theme.colorScheme.primary,
-          borderRadius: BorderRadius.circular(customTheme.radiuslarge),
+          borderRadius: BorderRadius.circular(radius ?? customTheme.radiuslarge),
         ),
-        child: Text(
-          text,
-          style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
-          textAlign: TextAlign.center,
+        child: Row(
+          mainAxisSize: mainAxisSize ?? MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            icon != null ? icon! : SizedBox(),
+            SizedBox(width: icon != null ? 5 : 0),
+            Text(
+              text,
+              style: textStyle ?? theme.textTheme.titleLarge?.copyWith(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

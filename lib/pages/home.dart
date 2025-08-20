@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shartflix/bloc/profile/profile_bloc.dart';
-import 'package:shartflix/bloc/profile/profile_event.dart';
 
 import '../bloc/auth/auth_bloc.dart';
 import '../bloc/home/home_bloc.dart';
 import '../bloc/home/home_event.dart';
 import '../bloc/home/home_state.dart';
+import '../bloc/profile/profile_bloc.dart';
+import '../bloc/profile/profile_event.dart';
 import '../components/buttons/navigation_button.dart';
 import '../gen/app_localizations.dart';
 import '../navigator/app_router.dart';
@@ -32,7 +32,9 @@ class PageHome extends StatelessWidget {
           create: (context) => HomeBloc(accessToken: auth.token)..add(HomeMovieFetched()),
         ),
         BlocProvider<ProfileBloc>(
-          create: (context) => ProfileBloc(accessToken: auth.token)..add(ProfileFetched()),
+          create:
+              (context) =>
+                  ProfileBloc(accessToken: auth.token)..add(ProfilePageFetched(userId: auth.id)),
         ),
       ],
       child: Builder(
@@ -67,8 +69,8 @@ class PageHome extends StatelessWidget {
               padding: EdgeInsets.only(
                 top: customTheme.gapxsmall,
                 bottom: customTheme.gapxlarge,
-                right: customTheme.gapxxxlarge,
-                left: customTheme.gapxxxlarge,
+                right: customTheme.gapxxlarge,
+                left: customTheme.gapxlarge,
               ),
               child: Row(
                 children: [
@@ -212,12 +214,11 @@ class _HomeBody extends StatelessWidget {
                     right: 25,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(customTheme.radiuslarge),
-                      onTap:
-                          () => context.read<HomeBloc>().add(
-                            HomeMovieFavoriteRequest(
-                              favoriteId: state.listMovie.elementAt(index).id,
-                            ),
-                          ),
+                      onTap: () {
+                        context.read<HomeBloc>().add(
+                          HomeMovieFavoriteRequest(favoriteId: state.listMovie.elementAt(index).id),
+                        );
+                      },
                       child: Material(
                         color: Colors.transparent,
                         child: Ink(

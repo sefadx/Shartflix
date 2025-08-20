@@ -38,6 +38,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   ///radius size 16.0
   final double radiuslarge;
 
+  ///radius size 24.0
+  final double radiusxlarge;
+
+  ///radius size 30.0
+  final double radiusxxlarge;
+
   const CustomThemeExtension({
     this.gapxxsmall = 2.0,
     this.gapxsmall = 5.0,
@@ -51,6 +57,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.radiussmall = 8.0,
     this.radiusmedium = 12.0,
     this.radiuslarge = 16.0,
+    this.radiusxlarge = 24.0,
+    this.radiusxxlarge = 30.0,
   });
 
   @override
@@ -68,6 +76,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       radiussmall: radiussmall,
       radiusmedium: radiusmedium,
       radiuslarge: radiuslarge,
+      radiusxlarge: radiusxlarge,
+      radiusxxlarge: radiusxxlarge,
     );
   }
 

@@ -1,7 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-
-part 'auth_state.g.dart';
+part of 'auth_bloc.dart';
 
 abstract class AuthState extends Equatable {
   const AuthState();
@@ -20,26 +17,9 @@ class AuthFailure extends AuthState {
   List<Object?> get props => [error];
 }
 
-@JsonSerializable()
 class Authenticated extends AuthState {
-  final String token;
-  final String id;
-  final String? name;
-  final String? email;
-  final String? photoUrl;
-  const Authenticated({
-    required this.token,
-    required this.id,
-    this.name,
-    this.email,
-    this.photoUrl,
-  });
-
-  factory Authenticated.fromJson(Map<String, dynamic> json) => _$AuthenticatedFromJson(json);
-  Map<String, dynamic> toJson() => _$AuthenticatedToJson(this);
-
-  @override
-  List<Object?> get props => [token, id, name, email, photoUrl];
+  final UserModel? user;
+  const Authenticated({required this.user});
 }
 
 class Unauthenticated extends AuthState {}

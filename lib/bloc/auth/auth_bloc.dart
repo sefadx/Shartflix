@@ -1,20 +1,21 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../model/base_response/base_response_model.dart';
+import '../../model/user/user_model.dart';
 import '../../network/api_endpoint.dart';
 import '../../network/api_error.dart';
 import '../../network/api_service.dart';
 import '../../repositories/token_repository.dart';
 import 'auth_event.dart';
-import 'auth_state.dart';
+
+part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final TokenRepository _tokenRepository;
-  Authenticated? _auth;
-  Authenticated? get auth => _auth;
-  AuthBloc({required TokenRepository tokenRepository})
-    : _tokenRepository = tokenRepository,
-      super(AuthInitial()) {
+  final TokenRepository tokenRepository;
+  UserModel? _auth;
+  UserModel? get auth => _auth;
+  AuthBloc({required this.tokenRepository}) : super(AuthInitial()) {
     on<AppStarted>(_onAppStarted);
     on<LoginRequested>(_onLoginRequested);
     on<RegisterRequested>(_onRegisterRequested);
@@ -23,13 +24,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
     debugPrint("_onAppStarted");
-    final hasToken = await _tokenRepository.hasValidAuthInfo();
+    final hasToken = await tokenRepository.hasValidAuthInfo();
     if (hasToken) {
-      final auth = await _tokenRepository.getAuthFromToken();
+      final auth = await tokenRepository.getAuthFromToken();
       debugPrint(auth.toString());
-      final authenticated = Authenticated.fromJson(auth!);
+      final authenticated = UserModel.fromJson(auth!);
       _auth = authenticated;
-      emit(authenticated);
+      emit(Authenticated(user: authenticated));
     } else {
       emit(Unauthenticated());
     }
@@ -38,21 +39,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _onLoginRequested(LoginRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try {
-      final BaseResponseModel<Authenticated> res = await APIService()
-          .post<BaseResponseModel<Authenticated>, LoginRequested>(
+      final BaseResponseModel<UserModel> res = await APIService()
+          .post<BaseResponseModel<UserModel>, LoginRequested>(
             LoginEndpoint(),
             body: event,
             fromJson:
                 (json) => BaseResponseModel.fromJson(
                   json,
-                  (dataJson) => Authenticated.fromJson(dataJson as Map<String, dynamic>),
+                  (dataJson) => UserModel.fromJson(dataJson as Map<String, dynamic>),
                 ),
           );
 
       if (res.responseInfo.code == 200 && res.data != null) {
-        _tokenRepository.saveTokens(auth: res.data!.token);
+        await tokenRepository.saveTokens(auth: res.data!.token);
         _auth = res.data!;
-        emit(res.data!);
+        emit(Authenticated(user: res.data!));
       } else {
         emit(AuthFailure(res.responseInfo.message));
       }
@@ -67,18 +68,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _onRegisterRequested(RegisterRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     try {
-      final BaseResponseModel<Authenticated?> res = await APIService()
-          .post<BaseResponseModel<Authenticated?>, RegisterRequested>(
+      final BaseResponseModel<UserModel?> res = await APIService()
+          .post<BaseResponseModel<UserModel?>, RegisterRequested>(
             RegisterEndpoint(),
             body: event,
             fromJson:
-                (json) => BaseResponseModel<Authenticated?>.fromJson(
+                (json) => BaseResponseModel<UserModel?>.fromJson(
                   json,
-                  (dataJson) => Authenticated.fromJson(dataJson as Map<String, dynamic>),
+                  (dataJson) => UserModel.fromJson(dataJson as Map<String, dynamic>),
                 ),
           );
       if (res.data.runtimeType == Authenticated) {
-        emit(res.data!);
+        emit(Authenticated(user: res.data!));
       }
     } on ApiException catch (e) {
       debugPrint("ApiException Request issue: ${e.message}");
@@ -90,7 +91,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> _onLogoutRequested(LogoutRequested event, Emitter<AuthState> emit) async {
     try {
-      await _tokenRepository.clearTokens();
+      await tokenRepository.clearTokens();
       emit(Unauthenticated());
     } catch (e) {
       debugPrint("Logout Error: ${e.toString()}");

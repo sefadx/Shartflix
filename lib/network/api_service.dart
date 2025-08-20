@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:path/path.dart' as path;
 import 'package:logging/logging.dart';
 import 'api_error.dart';
 import 'api_endpoint.dart';
@@ -34,6 +35,15 @@ abstract class IAPIService {
   Future<dynamic> postJson<U>(ApiEndpoint endpoint, {required U body});
   Future<dynamic> putJson<U>(ApiEndpoint endpoint, {required U body});
   Future<dynamic> deleteJson(ApiEndpoint endpoint);
+
+  Future<T> upload<T, U>(
+    ApiEndpoint endpoint, {
+    required String filePath,
+    required U body,
+    required T Function(dynamic json) fromJson,
+    String fileField = 'file',
+    String httpMethod = 'POST',
+  });
 }
 
 class APIService implements IAPIService {
@@ -243,5 +253,57 @@ class APIService implements IAPIService {
   @override
   Future deleteJson(ApiEndpoint endpoint) {
     return delete(endpoint, fromJson: (json) => json);
+  }
+
+  @override
+  Future<T> upload<T, U>(
+    ApiEndpoint endpoint, {
+    required String filePath,
+    required U body,
+    required T Function(dynamic json) fromJson,
+    String fileField = 'file',
+    String httpMethod = 'POST',
+  }) async {
+    final url = _buildUrl(endpoint);
+
+    _logger.info('$httpMethod (Multipart) -> ${url.toString()} | File: $filePath');
+
+    try {
+      final request = http.MultipartRequest(httpMethod, url);
+      request.headers.addAll(_buildHeaders());
+      final bodyJson = (body as dynamic).toJson() as Map<String, dynamic>;
+      final Map<String, String> fields = bodyJson.map(
+        (key, value) => MapEntry(key, value.toString()),
+      );
+      request.fields.addAll(fields);
+
+      _logger.fine('Fields: $fields');
+
+      final file = await http.MultipartFile.fromPath(
+        fileField,
+        filePath,
+        filename: path.basename(filePath),
+      );
+      request.files.add(file);
+
+      _logger.fine('File added: ${file.filename}, Size: ${file.length} bytes');
+
+      final streamedResponse = await request.send().timeout(_timeout);
+      final response = await http.Response.fromStream(streamedResponse);
+
+      _validateResponse(response);
+      return _decodeData<T>(response.body, fromJson);
+    } on ApiException {
+      rethrow;
+    } on SocketException catch (e, s) {
+      _logger.severe('No Internet Connection for upload: $e', e, s);
+      throw NoInternetConnectionException();
+    } on TimeoutException catch (e, s) {
+      _logger.warning('Upload Request Timed Out: $e', e, s);
+      throw RequestTimedOutException();
+    } catch (e, s) {
+      _logger.severe('Unexpected Upload Error: $e | URL: $url', e, s);
+      throw UnexpectedException(e);
+    }
   }
 }

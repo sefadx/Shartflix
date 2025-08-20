@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import '../../gen/app_localizations.dart';
 import '../../navigator/app_router.dart';
+import '../../navigator/pages.dart';
 import '../../theme/theme_extension.dart';
 
 class PagePopupInfo extends StatelessWidget {

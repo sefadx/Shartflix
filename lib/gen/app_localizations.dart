@@ -107,6 +107,114 @@ abstract class AppLocalizations {
   /// **'Profil'**
   String get profile;
 
+  /// No description provided for @profileDetail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Profil Detayı'**
+  String get profileDetail;
+
+  /// No description provided for @likedYourMovies.
+  ///
+  /// In tr, this message translates to:
+  /// **'Beğendiğin Filmler'**
+  String get likedYourMovies;
+
+  /// No description provided for @success.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başarılı'**
+  String get success;
+
+  /// No description provided for @failure.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başarısız'**
+  String get failure;
+
+  /// No description provided for @uploadYourPhotos.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fotoğraflarınızı Yükleyin'**
+  String get uploadYourPhotos;
+
+  /// No description provided for @uploadYourPhotosDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önce fotoğrafını seç, sonra onu yükle'**
+  String get uploadYourPhotosDesc;
+
+  /// No description provided for @uploaded.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme Tamamlandı'**
+  String get uploaded;
+
+  /// No description provided for @perWeek.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başına Haftalık'**
+  String get perWeek;
+
+  /// No description provided for @token.
+  ///
+  /// In tr, this message translates to:
+  /// **'Jeton'**
+  String get token;
+
+  /// No description provided for @limitedOffer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sınırlı Teklif'**
+  String get limitedOffer;
+
+  /// No description provided for @offerDescription.
+  ///
+  /// In tr, this message translates to:
+  /// **'Jeton paketini seçerek bonus\nkazanın ve yeni bölümlerin kilidini açın.'**
+  String get offerDescription;
+
+  /// No description provided for @incomeBonuses.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alacağınız Bonuslar'**
+  String get incomeBonuses;
+
+  /// No description provided for @premiumAccount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Premium\nHesap'**
+  String get premiumAccount;
+
+  /// No description provided for @moreMatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Daha\nFazla Eşleşme'**
+  String get moreMatch;
+
+  /// No description provided for @morePriority.
+  ///
+  /// In tr, this message translates to:
+  /// **'Öne\nÇıkarma'**
+  String get morePriority;
+
+  /// No description provided for @moreLike.
+  ///
+  /// In tr, this message translates to:
+  /// **'Daha\nFazla Beğeni'**
+  String get moreLike;
+
+  /// No description provided for @selectTokenOffer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kilidi açmak için bir jeton pakedi seçin'**
+  String get selectTokenOffer;
+
+  /// No description provided for @seeAllTokens.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm Jetonları Gör'**
+  String get seeAllTokens;
+
   /// No description provided for @login.
   ///
   /// In tr, this message translates to:
@@ -275,17 +383,35 @@ abstract class AppLocalizations {
   /// **'Giriş yap!'**
   String get alreadyHaveAccountLogIn;
 
-  /// No description provided for @actionFavorited.
+  /// No description provided for @addPhoto.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fotoğraf Ekle'**
+  String get addPhoto;
+
+  /// No description provided for @actionFavorite.
   ///
   /// In tr, this message translates to:
   /// **'Favoriye alındı'**
-  String get actionFavorited;
+  String get actionFavorite;
 
-  /// No description provided for @actionUnfavorite.
+  /// No description provided for @actionUnfavored.
   ///
   /// In tr, this message translates to:
   /// **'Favoriden çıkarıldı'**
-  String get actionUnfavorite;
+  String get actionUnfavored;
+
+  /// Ülke para formatında fiyat
+  ///
+  /// In tr, this message translates to:
+  /// **'{value}'**
+  String price(String value);
+
+  /// İndirim yüzdesini gösterir, % işareti başta (Türkçe)
+  ///
+  /// In tr, this message translates to:
+  /// **'%{value}'**
+  String percentDiscount(String value);
 
   /// Kullanıcıyı ana ekranda karşılayan mesaj
   ///
