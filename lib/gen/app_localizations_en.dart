@@ -54,13 +54,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get premiumAccount => 'Premium\nAccount';
 
   @override
-  String get moreMatch => 'More Matches';
+  String get moreMatch => 'More\natches';
 
   @override
-  String get morePriority => 'Highlight';
+  String get morePriority => 'Highlight\n';
 
   @override
-  String get moreLike => 'More Likes';
+  String get moreLike => 'More\nLikes';
 
   @override
   String get selectTokenOffer => 'Select a token offer to unlock';

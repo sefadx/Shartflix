@@ -57,18 +57,20 @@ class PagePopupOffer extends StatelessWidget {
                   children: [
                     Text(text.incomeBonuses, style: theme.textTheme.headlineSmall),
                     SizedBox(height: customTheme.gapxlarge),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _OfferIcon(icon: Icons.diamond, title: text.premiumAccount),
-                        SizedBox(width: customTheme.gaplarge),
-                        _OfferIcon(icon: Icons.handshake, title: text.moreMatch),
-                        SizedBox(width: customTheme.gaplarge),
-                        _OfferIcon(icon: Icons.arrow_upward, title: text.morePriority),
-                        SizedBox(width: customTheme.gaplarge),
-                        _OfferIcon(icon: Icons.favorite, title: text.moreLike),
-                      ],
+                    FittedBox(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _OfferIcon(icon: Icons.diamond, title: text.premiumAccount),
+                          SizedBox(width: customTheme.gaplarge),
+                          _OfferIcon(icon: Icons.handshake, title: text.moreMatch),
+                          SizedBox(width: customTheme.gaplarge),
+                          _OfferIcon(icon: Icons.arrow_upward, title: text.morePriority),
+                          SizedBox(width: customTheme.gaplarge),
+                          _OfferIcon(icon: Icons.favorite, title: text.moreLike),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -76,16 +78,28 @@ class PagePopupOffer extends StatelessWidget {
               SizedBox(height: customTheme.gapmedium),
               Text(text.selectTokenOffer, style: theme.textTheme.headlineSmall),
               SizedBox(height: customTheme.gapxlarge),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _OfferCard(discount: 10, preTokenAmount: 200, tokenAmount: 330, price: 99.99),
-                  SizedBox(width: customTheme.gapmedium),
-                  _OfferCard(discount: 10, preTokenAmount: 2000, tokenAmount: 3375, price: 799.99),
-                  SizedBox(width: customTheme.gapmedium),
-                  _OfferCard(discount: 10, preTokenAmount: 1000, tokenAmount: 1350, price: 399.99),
-                ],
+              FittedBox(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _OfferCard(discount: 10, preTokenAmount: 200, tokenAmount: 330, price: 99.99),
+                    SizedBox(width: customTheme.gapmedium),
+                    _OfferCard(
+                      discount: 10,
+                      preTokenAmount: 2000,
+                      tokenAmount: 3375,
+                      price: 799.99,
+                    ),
+                    SizedBox(width: customTheme.gapmedium),
+                    _OfferCard(
+                      discount: 10,
+                      preTokenAmount: 1000,
+                      tokenAmount: 1350,
+                      price: 399.99,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: customTheme.gapmedium),
               CustomButton(text: text.seeAllTokens),
@@ -141,13 +155,20 @@ class _OfferCard extends StatelessWidget {
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w400,
                       decoration: TextDecoration.lineThrough,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
                     tokenAmount.toInt().toString(),
-                    style: theme.textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.w900),
+                    style: theme.textTheme.headlineLarge?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                    ),
                   ),
-                  Text(text.token, style: theme.textTheme.titleMedium),
+                  Text(
+                    text.token,
+                    style: theme.textTheme.titleMedium?.copyWith(color: Colors.white),
+                  ),
                 ],
               ),
               Column(
@@ -155,11 +176,14 @@ class _OfferCard extends StatelessWidget {
                 children: [
                   Text(
                     text.price(currencyFormatted.format(price)),
-                    style: theme.textTheme.headlineSmall,
+                    style: theme.textTheme.headlineSmall?.copyWith(color: Colors.white),
                   ),
                   Text(
                     text.perWeek,
-                    style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w200),
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w200,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
@@ -179,7 +203,10 @@ class _OfferCard extends StatelessWidget {
             ),
             child: Text(
               text.percentDiscount(percentFormatted.format(discount)),
-              style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w200),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.w200,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -209,7 +236,7 @@ class _OfferIcon extends StatelessWidget {
             border: Border.all(color: theme.colorScheme.primary.withGreen(100), width: 4),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, size: 50),
+          child: Icon(icon, size: 50, color: Colors.white),
         ),
         SizedBox(height: customTheme.gapsmall),
         Text(title, style: theme.textTheme.titleSmall, textAlign: TextAlign.center),

@@ -35,15 +35,18 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius ?? customTheme.radiuslarge),
         ),
         child: Row(
-          mainAxisSize: mainAxisSize ?? MainAxisSize.max,
+          mainAxisSize: mainAxisSize ?? MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             icon != null ? icon! : SizedBox(),
             SizedBox(width: icon != null ? 5 : 0),
-            Text(
-              text,
-              style: textStyle ?? theme.textTheme.titleLarge?.copyWith(color: Colors.white),
-              textAlign: TextAlign.center,
+            Flexible(
+              child: Text(
+                text,
+                style: textStyle ?? theme.textTheme.titleLarge?.copyWith(color: Colors.white),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),

@@ -74,7 +74,7 @@ class PageProfile extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Row(
@@ -129,43 +129,53 @@ class PageProfile extends StatelessWidget {
                     SizedBox(height: customTheme.gapxxlarge),
                     Text(text.likedYourMovies, style: theme.textTheme.titleSmall),
                     SizedBox(height: customTheme.gapmedium),
-                    GridView.builder(
+                    GridView.count(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: state.listFavoriteMovie.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: customTheme.gaplarge,
-                        childAspectRatio: 9 / 13,
-                        crossAxisSpacing: customTheme.gapmedium,
-                      ),
-                      itemBuilder: (context, index) {
+                      crossAxisCount: 2,
+                      childAspectRatio: 9 / 13,
+                      mainAxisSpacing: customTheme.gaplarge,
+                      crossAxisSpacing: customTheme.gapmedium,
+                      children: List.generate(state.listFavoriteMovie.length, (int index) {
+                        final movie = state.listFavoriteMovie[index];
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Expanded(
+                            Flexible(
+                              fit: FlexFit.tight,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(customTheme.radiuslarge),
-                                child: Image.network(
-                                  state.listFavoriteMovie.elementAt(index).fixPosterUrl,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: Image.network(movie.fixPosterUrl, fit: BoxFit.cover),
                               ),
                             ),
                             SizedBox(height: customTheme.gapsmall),
-                            Text(
-                              state.listFavoriteMovie.elementAt(index).Title,
-                              style: theme.textTheme.bodyMedium,
-                            ),
-                            Text(
-                              state.listFavoriteMovie.elementAt(index).Director,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: theme.textTheme.bodyMedium?.color?.withOpacity(0.7),
-                              ),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    movie.Title,
+                                    style: theme.textTheme.bodyMedium,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    movie.Director,
+                                    style: theme.textTheme.bodyMedium?.copyWith(
+                                      color: theme.textTheme.bodyMedium?.color?.withOpacity(0.7),
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         );
-                      },
+                      }),
                     ),
                   ],
                 ),

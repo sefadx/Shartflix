@@ -26,9 +26,16 @@ class NavBarButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 30),
+            Flexible(child: Icon(icon, size: 30)),
             SizedBox(width: customTheme.gapsmall),
-            Text(text, style: theme.textTheme.labelLarge),
+            Flexible(
+              child: Text(
+                text,
+                style: theme.textTheme.labelLarge,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ),
