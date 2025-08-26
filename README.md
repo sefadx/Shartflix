@@ -1,6 +1,6 @@
-## Shartflix
+# Shartflix
 
-Flutter ile geliştirilmiş basit ve akıcı bir Movies App.Dikey kaydırmalı poster akışı, favori işaretleme, profil sayfası ve çok dillilik (tr/en) içerir.
+**Flutter ile geliştirilmiş basit ve akıcı bir Movies App.Dikey kaydırmalı poster akışı, favori işaretleme, profil sayfası ve çok dillilik (tr/en) içerir.
 
 
 # Gelişmiş Navigasyon Mimarisi
