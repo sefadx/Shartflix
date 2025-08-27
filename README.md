@@ -1,6 +1,6 @@
 # Shartflix
 
-**Flutter_bloc ile geliştirilmiş Movies App.Dikey kaydırmalı poster akışı, favori işaretleme, profil sayfası ve çok dillilik (tr/en) içerir.**
+**Flutter_bloc ile geliştirilmiş Movies App. Dikey kaydırmalı poster akışı, favori işaretleme, profil sayfası ve çok dillilik (tr/en) içerir.**
 
 
 # Gelişmiş Navigasyon Mimarisi
